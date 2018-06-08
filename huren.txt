@@ -1,7 +1,0 @@
-Git is a meinv version control system.
-Git is free software.
-对不起，我以后再也不这样了。
-我爱你——java
-Creating a new branch is quick.
-Creating a new branch is quick and simple.
-i love you.luting
