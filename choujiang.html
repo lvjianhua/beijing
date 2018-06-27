@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>抽奖小功能</title>
+ </head>
+ <script>
+	// 定義一個定時器
+	var timer = null;
+	// 抽獎人名單,用頭號隔開
+	var mingdan = "劉德華,郭富城,張學友,黎明,張衛健,譚詠麟,張國榮,李克勤,陳百強,梅艷芳,林子祥,周潤發,林志穎,王傑,黃家駒,草蜢,1,2e,f2e,3q,33q,d,f,r,t,g,u,e,w,c,we,s,e,wew,v,f,bs,bg,l,ty,yu,oi,po,ko,mj,nb,vf,cd,xs,nj,lk,gt,fd,sew,xdw,cfrt,bhgy,吕建华,吕章源,吕进宏,吕海芳,吕修彬,吕海苏,吕海善,吕海奥,吕军浩,吕军宇,吕寒香,吕春花,吕春芳,吕慧秋,吕部,吕锋,吕忠,吕振业,吕如雅";
+	// 把抽獎人名單轉成數組的形式
+	var arr = mingdan.split(",");
+	var zhongjiangzhe = null;
+    // 開始抽獎
+	function startChoujiang(){
+		// 創建定時器
+		if(!timer){
+			timer = setInterval(
+				function choujiang(){
+					var max = arr.length - 1;// 獲取最大下標數值
+					var rand = Math.random();// 創建隨機數
+					var randInt = parseInt(rand * max);// 得到整形的數據
+					// 獲取文本區域的值
+					var titleText = document.getElementById("zhongjiangren");
+					titleText.value = arr[randInt];
+					zhongjiangzhe = arr[randInt];
+			},1);
+		}
+	}
+	
+	// 停止抽獎
+	function stop(){
+		clearInterval(timer);
+		timer = null;
+		document.getElementById("zhongjiangren").value = zhongjiangzhe;
+	}
+
+ </script>
+ <body>
+	 <div id="big">
+			<div id="zhuti">
+			  恭喜<input type="text" id="zhongjiangren"  value=""/>中奖了......</br>
+			  <input type="button" value="開始" onclick="startChoujiang()"/>
+			  <input type="button" value="停止" onclick="stop()"/>
+			</div>
+	 </div>
+ </body>
+</html>
+
